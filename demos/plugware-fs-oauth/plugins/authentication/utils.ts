@@ -4,6 +4,16 @@ const CLIENT_ID = String(process.env.GH_CLIENT_ID);
 const GITHUB_OAUTH_URL = 'https://github.com/login/oauth/authorize';
 const REDIRECT_URL = 'http://localhost:1234/auth'; // ???
 
+export const usePromise = (pr) => {
+  const [state, setState] = React.useState(null);
+
+  React.useEffect(() => {
+    Promise.resolve(pr).then((data) => setState(data));
+  }, [pr]);
+
+  return [state];
+};
+
 const useSearchParam = (name: string, defaultValue: string | null) => {
   return [
     new URLSearchParams(window.location.search).get(name) || defaultValue,
@@ -33,4 +43,28 @@ export const useGithubAuthFlow = (cb: (code: string) => void) => {
   }, [code]);
 
   return [kickoff];
+};
+
+const useWindowEventListener = (name: string, listener: any) => {
+  React.useEffect(() => {
+    window.addEventListener(name, listener);
+    return () => window.removeEventListener(name, listener);
+  }, [listener]);
+};
+
+export const useLocalStorage = (name: string) => {
+  const [value, $setValue] = React.useState(localStorage.getItem(name) || null);
+
+  const setValue = React.useCallback((value: string) => {
+    $setValue(value);
+    localStorage.setItem(name, value);
+  }, [$setValue]);
+
+  useWindowEventListener('storage', React.useCallback((e) => {
+    if (e.key === name) {
+      $setValue(localStorage.getItem(name));
+    }
+  }, [$setValue]))
+
+  return [value, setValue];
 };
