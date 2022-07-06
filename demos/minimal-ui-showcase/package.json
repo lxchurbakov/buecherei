@@ -1,0 +1,21 @@
+{
+  "name": "minimal-ui-showcase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx parcel src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
