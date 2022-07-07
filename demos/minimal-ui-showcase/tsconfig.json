@@ -10,9 +10,8 @@
     "typeRoots" : ["node_modules/@types", "./types"],
     "baseUrl": ".",
     "paths": {
+      "/icons/*": ["./icons/*"],
       "/libs/*": ["./libs/*"],
-      "/platforms/*": ["./platforms/*"],
-      "/plugins/*": ["./plugins/*"],
       "/components/*": ["./components/*"],
       "/types/*": ["./types/*"]
     }

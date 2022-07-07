@@ -2,10 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 // import Loader from '/src/components/atoms/loader';
-import $theme from '/libs/theme';
+import theme from '/libs/theme';
 // import { PropsOf } from '/src/types/utils';
-
-console.log('todo - refactor text input');
 
 export type InputState = 'idle' | 'invalid' | 'disabled' | 'valid';
 
@@ -13,19 +11,6 @@ const Wrap = styled.div`
   position: relative;
   width: 100%;
 `;
-
-const theme = {
-  font: {
-    family: $theme.font.family,
-  },
-  colors: {
-    black: '#000',
-    primary: 'red',
-    grey: 'grey',
-    'red': 'red',
-    'green': 'green',
-  }
-}
 
 const StyledInput = styled.input<{ state: InputState, nonEditable: boolean }>`
   font-family: ${theme.font.family};
@@ -38,46 +23,20 @@ const StyledInput = styled.input<{ state: InputState, nonEditable: boolean }>`
   width: 100%;
   max-width: unset;
   min-width: unset;
-  // padding: 14px;
 
+  padding: 14px 18px;
 
-
-  // color: #2F3951;
-  background: #f1f1f4;
-  color: #29274F;
   border: none;
-  border-radius: 4px;
-  // border: 1px solid rgba(47, 57, 81, 0.1);
-  // border-bottom: 2px solid ${props => props.nonEditable ? 'transparent' : theme.colors.black};
-  // font-family: ${theme.font.family};
-  transition: padding 100ms ease;
-  padding: 10px 12px;
+  border-radius: 8px;
+  color: ${theme.colors.text};
+  border: 1px solid ${theme.colors.dark};
+
+  transition: border 100ms ease;
 
   &:focus {
-    background: #f1f1f4;
     outline: none;
-    // border: 1px solid ${theme.colors.primary}80;
-    // border-bottom: 2px solid ${theme.colors.primary};
+    border: 1px solid ${theme.colors.primary};
   }
-
-  // text-align: center;
-
-  // ${props => props.state === 'disabled' && css`
-  //   pointer-events: none;
-  //   color: ${theme.colors.grey};
-  //   border: 1px solid ${theme.colors.grey}80;
-  //   border-bottom: 2px solid ${theme.colors.grey};
-  // `};
-  //
-  // ${props => props.state === 'invalid' && css`
-  //   border: 1px solid ${theme.colors.red}80;
-  //   border-bottom: 2px solid ${theme.colors.red};
-  // `};
-  //
-  // ${props => props.state === 'valid' && css`
-  //   border: 1px solid ${theme.colors.green}80;
-  //   border-bottom: 2px solid ${theme.colors.green};
-  // `};
 
   &::placeholder {
     font-style: italic;

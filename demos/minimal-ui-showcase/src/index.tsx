@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Card from '/components/atoms/card';
+import App from './pages';
 
 const node = document.getElementById('app') as any;
 
@@ -16,8 +16,4 @@ node.style.justifyContent = 'center';
 
 const root = ReactDOM.createRoot(node);
 
-root.render(
-  <Card>
-    Wtf
-  </Card>
-);
+root.render(<App />);
