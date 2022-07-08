@@ -16,3 +16,7 @@
 ### Snippets
 
 1. [Simple SQL Tree Snippet](https://github.com/swensson/buecherei/tree/master/snippets/data-managements/sql-tree-thread)
+
+### Outside Repos
+
+1. [Desktop P2P Chat App (Electron React Starter + Minimal UII Kit Demo + swenssonp2p)](https://github.com/swensson/electron-react-p2p-chat)
